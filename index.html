@@ -7,14 +7,57 @@
 		<title>bootstrap-mod</title>
 
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+
+		<style type="text/css">
+			body {
+				/*background: url(img/builderBg.png);*/
+			}
+			
+			#myCanvas {
+				background-color: #eee;
+			}
+		</style>
 	</head>
 
 	<body>
+
+		<div id="app-1">
+			<input v-model="message" type="text" />
+		</div>
+		<div id="app-2">
+			{{message}}
+		</div>
+		<div id="app-3">
+			{{message}}
+		</div>
+		<div id="app-4">
+			<input v-model="message" type="text" />
+		</div>
 
 		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			var app1 = new Vue({
+				el: '#app-1',
+				data: {
+					message: 'hello world',
+				}
+			});
+
+			var app2 = new Vue({
+				el: '#app-2',
+				data: app1
+			});
+			var app3 = new Vue({
+				el: '#app-3',
+				data: app1
+			});
+			var app4 = new Vue({
+				el: '#app-4',
+				data: app1
+			});
 		</script>
 
 	</body>
